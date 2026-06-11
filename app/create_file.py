@@ -56,4 +56,3 @@ if "-f" in args:
         file_path = file_name
 
     write_content_to_file(file_path)
-# luke work please
