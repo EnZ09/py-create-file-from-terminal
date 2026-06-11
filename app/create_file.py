@@ -2,12 +2,13 @@ import sys
 import os
 from datetime import datetime
 
+from app.create_file import f_inside_dir_index
+
 
 def write_content_to_file(file_path: str) -> None:
     content_lines = []
     while True:
         new_string = input("Enter content line: ")
-
         if new_string == "stop":
             break
         content_lines.append(new_string)
@@ -16,11 +17,11 @@ def write_content_to_file(file_path: str) -> None:
 
     prepared_lines = [timestamp]
 
-    for index, line in enumerate(content_lines, start=1):
+    for index, line enumerate(content_lines, start=1):
         prepared_lines.append(f"{index} {line}")
 
     file_has_content = (os.path.exists(file_path)
-                        and os.path.getsize(file_path) > 0)
+              and os.path.getsize(file_path) > 0)
 
     with open(file_path, "a") as file:
         if file_has_content:
@@ -29,9 +30,7 @@ def write_content_to_file(file_path: str) -> None:
         file.write("\n".join(prepared_lines))
         file.write("\n")
 
-
 args = sys.argv[1:]
-
 
 dir_path = ""
 
